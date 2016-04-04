@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Kurssin nimi</h1>
+
+  <!-- Tiedot tulee listana tähän -->
+  <ul>
+    <li><strong>Kurssin ajankohta:</strong> 01.01.2016-31.01.2016</li>
+    <li><strong>Luennoitsija:</strong> Crazyman</li>
+    <li><strong>Esitiedot:</strong> Tira</li>
+    <li><strong>Ilmoittautuminen: </strong> 24.12.2015-26.12.2015</li>
+  </ul>
+
+  <h3>Harjoitusryhmät</h3>
+
+  <ul>
+  <li>Ma: klo 09:00-11:00 B221</li>
+  <li>Ti: klo 13:00-15:00 B221</li>
+  </ul>
+
+
+  <!-- Kuvaus tulee tähän -->
+  <p>
+    Kurssilla käsitellään sitä tätä ja tota. Harjoitusryhmät ovat pakollisia ja niihin on pakko tulla ajoissa. Myöhästymisestä vankilaan. Lisäksi kokeessa ei saa olla laskinta, vaikkei sillä siellä mitään tekisi. Uusijat, unohtakaa koko juttu. 
+  </p>
+
+<!-- Mikäli ei ilmoittauduttu -->
+
+<p>
+    <button class="btn btn-primary">Ilmoittaudu</button> 
+  </p>
+    <!-- Mikäli ilmoittauduttu -->
+    
+    <a href="#"
+    class="btn btn-danger">Peru</a>
+{% endblock %}

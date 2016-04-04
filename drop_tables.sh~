@@ -9,5 +9,9 @@ cd htdocs/$PROJECT_FOLDER/sql
 psql < drop_tables.sql
 exit"
 
+DROP TABLE IF EXISTS Opiskelija CASCADE;
+DROP TABLE IF EXISTS Kurssi CASCADE;
+DROP TABLE IF EXISTS Ilmoittautuminen CASCADE;
+
 
 echo "Valmis!"

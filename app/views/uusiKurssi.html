@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Kurssin lisäys/muokkaus</h1>
+
+  <form>
+    <div class="form-group">
+      <label>Kurssin nimi</label>
+      <input class="form-control" value="TiRa" type="text">
+    </div>
+    <div class="form-group">
+      <label>Luennoitsija</label>
+      <input class="form-control" value="Floren" type="text">
+    </div>
+    <div class="form-group">
+      <label>Opintopisteet</label>
+      <input class="form-control" value="8-10" type="text">
+    </div>
+    <div class="form-group">
+      <label>Luentoajat:</label>
+      <input class="form-control" value="Ti klo 9-11 salissa A111" type="text">
+    </div>
+    <div class="form-group">
+      <label>Esitietovaatimukset:</label>
+      <input class="form-control" value="JYM, OhJa" type="text">
+    </div>
+    <div class="form-group">
+      <label>Kuvaus</label>
+      <textarea class="form-control"> Kurssilla käsitellään järjestämis- ja hakualgoritmeja ja muutamia tietorakenteita. Opintopisteitä sen mukaan, mitä painat hommia.
+      </textarea>
+    </div>
+    <div class="form-group">
+      <label>Harjoitusryhmät</label>
+      <textarea class="form-control"> Pajaohjausta tiistaisin ja torstaisin klo 14-16 luokassa CK107.
+      </textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Tallenna</button>
+    </div>
+  </form>
+{% endblock %}

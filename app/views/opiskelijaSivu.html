@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Opiskelijatietojärjestelmä</h1>
+
+
+<h3>Tiedot</h3>
+
+  <ul>
+    <li><strong>Nimi:</strong> Timo Hautamäki</li>
+    <li><strong>Opiskelijanumero:</strong> 0123456789</li>
+    <li><strong>Sähköpostiosoite:</strong> timo.hautamaki@hotmail.com</li>
+  </ul>
+
+  <h3>Ilmoittautumiset</h3>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+      <th>Kurssin nimi</th>
+      <th>Peru</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>TiKaPe</td>
+        <td><INPUT TYPE=BUTTON OnClick="poisto-operaatio" VALUE="Peru"></td>
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}
