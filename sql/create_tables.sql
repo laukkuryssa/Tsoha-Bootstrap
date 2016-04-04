@@ -28,7 +28,7 @@ CREATE TABLE Kurssi(
   alkamisajankohta DATE,
   loppumisajankohta DATE,
   ilmoalkaa DATE,
-  ilmoloppuu DATE,
+  ilmoloppuu DATE
 );
 
 CREATE TABLE Ilmoittautuminen(
