@@ -13,7 +13,7 @@
   });
 
    $routes->get('/kurssiLista', function() {
-    HelloWorldController::kurssiLista();
+    KurssiController::lista();
   });
 
    $routes->get('/kurssiSivu', function() {

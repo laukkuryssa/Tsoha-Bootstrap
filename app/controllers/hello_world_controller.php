@@ -19,11 +19,7 @@
     
   }
 
-    public static function kurssiLista(){
-      // Testaa koodiasi täällä
-      View::make('kurssiLista.html');
     
-  }
 
     public static function opiskelijaSivu(){
       // Testaa koodiasi täällä

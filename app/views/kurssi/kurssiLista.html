@@ -16,17 +16,12 @@
       </tr>
     </thead>
     <tbody>
+    {% for kurssi in kurssit %}
       <tr>
-        <td>Tira</td>
-        <td>Floren</td>
-        <td>01.01.2016</td>
-        <td>10 op</td>
-      </tr>
-      <tr>
-        <td>Tietokantasovellus</td>
-        <td>Vihavainen</td>
-        <td>02.01.2016</td>
-        <td>5 op</td>
+        <td><a href="{{base_path}}/kurssi/{{kurssi.id}}">{{kurssi.name}}</td>
+        <td>{{kurssi.luennoitsija}}</td>
+        <td>{{kurssi.alkamisajankohta}}</td>
+        <td>{{kurssi.opintopisteet}} op</td>
       </tr>
     </tbody>
   </table>

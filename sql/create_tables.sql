@@ -28,12 +28,12 @@ CREATE TABLE Kurssi(
   alkamisajankohta DATE,
   loppumisajankohta DATE,
   ilmoalkaa DATE,
-  ilmoloppuu DATE
+  ilmoloppuu DATE,
 );
 
 CREATE TABLE Ilmoittautuminen(
   id SERIAL PRIMARY KEY,
   opiskelija_id INTEGER REFERENCES Opiskelija(id),
   kurssi_id INTEGER REFERENCES Kurssi(id),
-  maksettu boolean DEFAULT FALSE,
+  maksettu boolean DEFAULT FALSE
 );
