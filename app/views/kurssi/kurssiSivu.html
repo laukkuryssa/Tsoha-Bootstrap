@@ -1,26 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Kurssin nimi</h1>
+    {% for k in kurssi %}
+  <h1>{{k.name}}</h1>
 
   <!-- Tiedot tulee listana tähän -->
+
   <ul>
-    <li><strong>Kurssin ajankohta:</strong> 01.01.2016-31.01.2016</li>
-    <li><strong>Luennoitsija:</strong> Crazyman</li>
-    <li><strong>Esitiedot:</strong> Tira</li>
-    <li><strong>Ilmoittautuminen: </strong> 24.12.2015-26.12.2015</li>
+    <li><strong>Kurssin ajankohta:</strong> </li>
+    <li><strong>Luennoitsija:</strong> {{k.luennoitsija}}</li>
+    <li><strong>Esitiedot:</strong> {{k.esitiedot}}</li>
+    <li><strong>Ilmoittautuminen: </strong> {{k.ilmoalkaa}}-{{k.ilmoloppuu}}</li>
   </ul>
 
   <h3>Harjoitusryhmät</h3>
 
   <ul>
-  <li>Ma: klo 09:00-11:00 B221</li>
-  <li>Ti: klo 13:00-15:00 B221</li>
+  <li>{{k.harjoitusryhmat}}</li>
   </ul>
 
 
   <!-- Kuvaus tulee tähän -->
   <p>
-    Kurssilla käsitellään sitä tätä ja tota. Harjoitusryhmät ovat pakollisia ja niihin on pakko tulla ajoissa. Myöhästymisestä vankilaan. Lisäksi kokeessa ei saa olla laskinta, vaikkei sillä siellä mitään tekisi. Uusijat, unohtakaa koko juttu. 
+    {{k.kuvaus}} 
   </p>
 
 <!-- Mikäli ei ilmoittauduttu -->
@@ -32,4 +33,5 @@
     
     <a href="#"
     class="btn btn-danger">Peru</a>
+        {% endfor %}
 {% endblock %}

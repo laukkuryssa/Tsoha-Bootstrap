@@ -16,8 +16,8 @@
     KurssiController::lista();
   });
 
-   $routes->get('/kurssiSivu', function() {
-    HelloWorldController::kurssiSivu();
+   $routes->get('/kurssiSivu/:id', function($id) {
+    HelloWorldController::kurssiSivu($id);
   });
 
    $routes->get('/opiskelijaSivu', function() {
