@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
+{% for o in opiskelija %}
   <h1>Opiskelijatietojärjestelmä</h1>
 
 
 <h3>Tiedot</h3>
 
   <ul>
-    <li><strong>Nimi:</strong> Timo Hautamäki</li>
-    <li><strong>Opiskelijanumero:</strong> 0123456789</li>
-    <li><strong>Sähköpostiosoite:</strong> timo.hautamaki@hotmail.com</li>
+    <li><strong>Nimi:</strong> o.name</li>
+    <li><strong>Opiskelijanumero:</strong> o.opiskelijanumero</li>
+    <li><strong>Sähköpostiosoite:</strong> o.email</li>
   </ul>
 
   <h3>Ilmoittautumiset</h3>
@@ -27,4 +28,5 @@
       </tr>
     </tbody>
   </table>
+  {% endfor %}
 {% endblock %}

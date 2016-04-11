@@ -9,11 +9,11 @@
   });
 
   $routes->get('/opiskelijaLista', function() {
-    OpiskelijaController::opiskelijaLista();
+    OpiskelijaController::lista();
   });
 
-  $routes->get('/opiskelijaSivu', function() {
-    OpiskelijaController::opiskelijaSivu();
+  $routes->get('/opiskelijaSivu/:id', function($id) {
+    OpiskelijaController::opiskelijaSivu($id);
   });
 
    $routes->get('/kurssiLista', function() {

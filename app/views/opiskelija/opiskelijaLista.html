@@ -7,21 +7,16 @@
     <thead>
       <tr>
         <th>Nimi</th>
-        <th>Opiskelijanumero</th>
-        <th>Syntymäaika</th>
+        <th>Sähköposti</th>
       </tr>
     </thead>
     <tbody>
+        {% for opiskelija in opiskelijat %}
       <tr>
-        <td>Timo Hautamäki</td>
-        <td>0123456789</td>
-        <td>08.08.1993</td>
+        <td><a href="{{base_path}}/opiskelijaSivu/{{opiskelija.id}}">{{opiskelija.name}}</td>
+        <td>{{opiskelija.email}}</td>
       </tr>
-      <tr>
-        <td>Matti Meikäläinen</td>
-        <td>0987654321</td>
-        <td>01.01.1980</td>
-      </tr>
+      {% endfor %}
     </tbody>
   </table>
 
