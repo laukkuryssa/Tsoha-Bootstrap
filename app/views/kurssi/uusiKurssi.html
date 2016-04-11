@@ -2,7 +2,7 @@
 {% block content %}
   <h1>Kurssin lisäys/muokkaus</h1>
 
-  <form method="post" action="{{base_path}}/kurssi">
+  <form method="post" action="{{base_path}}/kurssiLista">
     <div class="form-group">
       <label>Kurssin nimi</label>
       <input name="name" class="form-control" type="text">
@@ -13,7 +13,7 @@
     </div>
     <div class="form-group">
       <label>Opintopisteet</label>
-      <input name="opintopisteet" class="form-control" type="text">
+      <input name="opintopisteet" class="form-control" type="INTEGER">
     </div>
     <div class="form-group">
       <label>Luentoajat:</label>
