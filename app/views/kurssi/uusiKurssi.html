@@ -2,39 +2,53 @@
 {% block content %}
   <h1>Kurssin lisäys/muokkaus</h1>
 
-  <form>
+  <form method="post" action="{{base_path}}/kurssi">
     <div class="form-group">
       <label>Kurssin nimi</label>
-      <input class="form-control" value="TiRa" type="text">
+      <input name="name" class="form-control" type="text">
     </div>
     <div class="form-group">
       <label>Luennoitsija</label>
-      <input class="form-control" value="Floren" type="text">
+      <input name="luennoitsija" class="form-control" type="text">
     </div>
     <div class="form-group">
       <label>Opintopisteet</label>
-      <input class="form-control" value="8-10" type="text">
+      <input name="opintopisteet" class="form-control" type="text">
     </div>
     <div class="form-group">
       <label>Luentoajat:</label>
-      <input class="form-control" value="Ti klo 9-11 salissa A111" type="text">
+      <input name="luentoajat" class="form-control" type="text">
     </div>
     <div class="form-group">
       <label>Esitietovaatimukset:</label>
-      <input class="form-control" value="JYM, OhJa" type="text">
+      <input name="esitiedot" class="form-control" type="text">
     </div>
     <div class="form-group">
-      <label>Kuvaus</label>
-      <textarea class="form-control"> Kurssilla käsitellään järjestämis- ja hakualgoritmeja ja muutamia tietorakenteita. Opintopisteitä sen mukaan, mitä painat hommia.
-      </textarea>
+      <label>Kuvaus:</label>
+      <input name="kuvaus" class="form-control" type="text">
     </div>
     <div class="form-group">
-      <label>Harjoitusryhmät</label>
-      <textarea class="form-control"> Pajaohjausta tiistaisin ja torstaisin klo 14-16 luokassa CK107.
-      </textarea>
+      <label>Harjoitustyhmät:</label>
+      <input name="harjoitusryhmat" class="form-control" type="text">
     </div>
     <div class="form-group">
-      <button type="submit" class="btn btn-primary">Tallenna</button>
+      <label>Kurssi alkaa: ()</label>
+      <input name="alkamisajankohta" class="form-control" type="date">
+    </div>
+    <div class="form-group">
+      <label>Kurssi loppuu: ()</label>
+      <input name="loppumisajankohta" class="form-control" type="date">
+    </div>
+    <div class="form-group">
+      <label>Ilmo alkaa: ()</label>
+      <input name="ilmoalkaa" class="form-control" type="date">
+    </div>
+    <div class="form-group">
+      <label>Ilmo loppuu: ()</label>
+      <input name="ilmoloppuu" class="form-control" type="date">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Lisää</button>
     </div>
   </form>
 {% endblock %}

@@ -61,4 +61,15 @@ class Kurssi extends BaseModel{
 
     return null;
   }
+
+  public function save(){
+    // Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
+    $query = DB::connection()->prepare('INSERT INTO Kurssi (name, luennoitsija, opintopisteet, luentoajat, esitiedot, kuvaus, harjoitusryhmat, alkamisajankohta, loppumisajankohta, ilmoalkaa, ilmoloppuu) VALUES (:name, :luennoitsija, :opintopisteet, :luentoajat, :esitiedot, :kuvaus, :harjoitusryhmat, :alkamisajankohta, :loppumisajankohta, :ilmoalkaa, :ilmoloppuu) RETURNING id');
+    // Muistathan, että olion attribuuttiin pääse syntaksilla $this->attribuutin_nimi
+    $query->execute(array('name' => $this->name, 'luennoitsija' => $this->luennoitsija, 'opintopisteet' => $this->opintopisteet, 'luentoajat' => $this->luentoajat, 'esitiedot' => $this->esitiedot, 'kuvaus' => $this->kuvaus, 'harjoitusryhmat' => $this->harjoitusryhmat, 'alkamisajankohta' => $this->alkamisajankohta, 'loppumisajankohta' => $this->loppumisajankohta, 'ilmoalkaa' => $this->ilmoalkaa, 'ilmoloppuu' => $this->ilmoloppuu));
+    // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
+    $row = $query->fetch();
+    // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
+    $this->id = $row['id'];
+  }
 }

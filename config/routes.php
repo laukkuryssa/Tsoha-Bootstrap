@@ -17,15 +17,19 @@
   });
 
    $routes->get('/kurssiSivu/:id', function($id) {
-    HelloWorldController::kurssiSivu($id);
+    KurssiController::kurssiSivu($id);
   });
+
+   $routes->post('/kurssiLista', function(){
+    KurssiController::store();
+});
+
+   $routes->get('/uusiKurssi', function(){
+    KurssiController::create();
+});
 
    $routes->get('/opiskelijaSivu', function() {
     HelloWorldController::opiskelijaSivu();
-  });
-
-   $routes->get('/uusiKurssi', function() {
-    HelloWorldController::uusiKurssi();
   });
 
    $routes->get('/login', function() {
