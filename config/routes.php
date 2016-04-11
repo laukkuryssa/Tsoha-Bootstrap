@@ -9,7 +9,11 @@
   });
 
   $routes->get('/opiskelijaLista', function() {
-    HelloWorldController::opiskelijaLista();
+    OpiskelijaController::opiskelijaLista();
+  });
+
+  $routes->get('/opiskelijaSivu', function() {
+    OpiskelijaController::opiskelijaSivu();
   });
 
    $routes->get('/kurssiLista', function() {
@@ -22,14 +26,10 @@
 
    $routes->post('/kurssiLista', function(){
     KurssiController::store();
-});
+  });
 
-   $routes->get('/uusiKurssi.htm', function(){
+   $routes->get('/uusiKurssi', function(){
     KurssiController::create();
-});
-
-   $routes->get('/opiskelijaSivu', function() {
-    HelloWorldController::opiskelijaSivu();
   });
 
    $routes->get('/login', function() {
