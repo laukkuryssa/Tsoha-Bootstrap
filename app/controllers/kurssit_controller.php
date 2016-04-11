@@ -40,6 +40,6 @@ class KurssiController extends BaseController{
     $kurssi->save();
 
     // Ohjataan käyttäjä lisäyksen jälkeen pelin esittelysivulle
-    Redirect::to('/kurssiLista/' . $kurssi->id, array('message' => 'Kurssi luotu!!'));
+    Redirect::to('/kurssiSivu/' . $kurssi->id, array('message' => 'Kurssi luotu!!'));
   }
 }

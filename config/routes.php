@@ -24,7 +24,7 @@
     KurssiController::store();
 });
 
-   $routes->get('/uusiKurssi', function(){
+   $routes->get('/uusiKurssi.htm', function(){
     KurssiController::create();
 });
 
