@@ -2,7 +2,7 @@
 
   class BaseController{
 
-    public static function get_opiskelija_logged_in(){
+    public static function get_user_logged_in(){
     // Katsotaan onko user-avain sessiossa
     if(isset($_SESSION['opiskelija'])){
       $opiskelija_id = $_SESSION['opiskelija'];

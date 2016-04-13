@@ -54,6 +54,9 @@ class Opiskelija extends BaseModel{
   $query = DB::connection()->prepare('SELECT * FROM Opiskelija WHERE username = :username AND password = :password LIMIT 1');
 $query->execute(array('username' => $username, 'password' => $password));
 $row = $query->fetch();
+
+
+
 if($row){
   $opiskelija[] = new Opiskelija(array(
         'id' => $row['id'],
@@ -63,8 +66,8 @@ if($row){
         'username' => $row['username'],
         'password' => $row['password']
       ));
-
-      return $opiskelija;
+      Kint::dump($opiskelija);
+      return $opiskelija[0];
     }
   return null;
 
