@@ -43,6 +43,9 @@
             <li><a href="{{base_path}}/kurssiLista">Kurssit</a></li>
             <li><a href="{{base_path}}/opiskelijaLista">Opiskelijat</a></li>
             <li><a href="{{base_path}}/uusiKurssi">Luo kurssi</a></li>
+            {% if user_logged_in %}
+              <li><a href="{{base_path}}/opiskelijaSivu/{{user_logged_in.id}}">{{user_logged_in.name}}</a></li>
+            {% endif %}
           </ul>
         </div>
       </div>

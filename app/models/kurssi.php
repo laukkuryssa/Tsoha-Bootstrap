@@ -74,6 +74,28 @@ class Kurssi extends BaseModel{
     $this->id = $row['id'];
   }
 
+  public function update(){
+    // Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
+    $query = DB::connection()->prepare('UPDATE INTO Kurssi (name, luennoitsija, opintopisteet, luentoajat, esitiedot, kuvaus, harjoitusryhmat, alkamisajankohta, loppumisajankohta, ilmoalkaa, ilmoloppuu) VALUES (:name, :luennoitsija, :opintopisteet, :luentoajat, :esitiedot, :kuvaus, :harjoitusryhmat, :alkamisajankohta, :loppumisajankohta, :ilmoalkaa, :ilmoloppuu) RETURNING id');
+    // Muistathan, että olion attribuuttiin pääse syntaksilla $this->attribuutin_nimi
+    $query->execute(array('name' => $this->name, 'luennoitsija' => $this->luennoitsija, 'opintopisteet' => $this->opintopisteet, 'luentoajat' => $this->luentoajat, 'esitiedot' => $this->esitiedot, 'kuvaus' => $this->kuvaus, 'harjoitusryhmat' => $this->harjoitusryhmat, 'alkamisajankohta' => $this->alkamisajankohta, 'loppumisajankohta' => $this->loppumisajankohta, 'ilmoalkaa' => $this->ilmoalkaa, 'ilmoloppuu' => $this->ilmoloppuu));
+    // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
+    $row = $query->fetch();
+    // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
+    $this->id = $row['id'];
+  }
+
+  public function destroy(){
+    // Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
+    $query = DB::connection()->prepare('INSERT INTO Kurssi (name, luennoitsija, opintopisteet, luentoajat, esitiedot, kuvaus, harjoitusryhmat, alkamisajankohta, loppumisajankohta, ilmoalkaa, ilmoloppuu) VALUES (:name, :luennoitsija, :opintopisteet, :luentoajat, :esitiedot, :kuvaus, :harjoitusryhmat, :alkamisajankohta, :loppumisajankohta, :ilmoalkaa, :ilmoloppuu) RETURNING id');
+    // Muistathan, että olion attribuuttiin pääse syntaksilla $this->attribuutin_nimi
+    $query->execute(array('name' => $this->name, 'luennoitsija' => $this->luennoitsija, 'opintopisteet' => $this->opintopisteet, 'luentoajat' => $this->luentoajat, 'esitiedot' => $this->esitiedot, 'kuvaus' => $this->kuvaus, 'harjoitusryhmat' => $this->harjoitusryhmat, 'alkamisajankohta' => $this->alkamisajankohta, 'loppumisajankohta' => $this->loppumisajankohta, 'ilmoalkaa' => $this->ilmoalkaa, 'ilmoloppuu' => $this->ilmoloppuu));
+    // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
+    $row = $query->fetch();
+    // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
+    $this->id = $row['id'];
+  }
+
   public function validate_name(){
   $errors = array();
   if($this->name == '' || $this->name == null){
@@ -100,7 +122,7 @@ class Kurssi extends BaseModel{
 
   public function validate_opintopisteet(){
   $errors = array();
-  if($this->opintopisteet != is_integer() || $this->opintopisteet <= 0 || $this->opintopisteet == null){
+  if($this->opintopisteet == null || $this->opintopisteet <= 0){
     $errors[] = 'Opintopistemäärän tulee olla positiivinen kokonaisluku!';
   }
 
@@ -109,48 +131,41 @@ class Kurssi extends BaseModel{
 
   public function validate_alkamisajankohta(){
   $errors = array();
-  if(!paivayksen_oikeellisuus($this->alkamisajankohta)){
-    $errors[] = 'Anna kurssin alkamisajankohta pyydetyssä muodossa!';
-  }
+  
 
   return $errors;
 }
 
   public function validate_loppumisajankohta(){
   $errors = array();
-  if(!paivayksen_oikeellisuus($this->loppumisajankohta)){
-    $errors[] = 'Anna kurssin loppumisajankohta pyydetyssä muodossa!';
-  }
+  
 
   return $errors;
 }
 
   public function validate_ilmoalkaa(){
   $errors = array();
-  if(!paivayksen_oikeellisuus($this->ilmoalkaa)){
-    $errors[] = 'Anna ilmoittautumisen alkamisajankohta pyydetyssä muodossa!';
-  }
+  
 
   return $errors;
 }
 
   public function validate_ilmoloppuu(){
   $errors = array();
-  if(!paivayksen_oikeellisuus($this->ilmoloppuu)){
-    $errors[] = 'Anna ilmoittautumisen loppumisajankohta pyydetyssä muodossa!';
-  }
+  
 
   return $errors;
 }
 
-function paivayksen_oikeellisuus($pvm) {
-  if(preg_match("/^(\d{2})\/(\d{2})\/(\d{4})$/", $pvm, $matches))
+  public function paivayksen_oikeellisuus() {
+  if(preg_match("/^(\d{2})\/(\d{2})\/(\d{4})$/", $matches))
    {
     if(checkdate($matches[2], $matches[1], $matches[3]))
       {
        return true; 
       }
    }
+   return false;
  }
 
 }

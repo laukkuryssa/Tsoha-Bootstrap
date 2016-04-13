@@ -21,8 +21,7 @@ class KurssiController extends BaseController{
 
   public static function store(){
     $params = $_POST;
-    // Alustetaan uusi Game-luokan olion käyttäjän syöttämillä arvoilla
-    $kurssi = new Kurssi(array(
+    $attributes = new Kurssi(array(
         'name' => $params['name'],
         'luennoitsija' => $params['luennoitsija'],
         'opintopisteet' => $params['opintopisteet'],
@@ -36,11 +35,18 @@ class KurssiController extends BaseController{
         'ilmoloppuu' => $params['ilmoloppuu']
     ));
 
+    $kurssi = new Kurssi($attributes);
+    $errors = $kurssi->errors();
+
+    if(count($errors) > 0){
+      View::make('kurssi/uusiKurssi.html', array('errors' => $errors, 'attributes' => $attributes));
+    } else {
     // Kutsutaan alustamamme olion save metodia, joka tallentaa olion tietokantaan
     $kurssi->save();
 
     // Ohjataan käyttäjä lisäyksen jälkeen pelin esittelysivulle
     Redirect::to('/kurssiSivu/' . $kurssi->id, array('message' => 'Kurssi luotu!!'));
+	}
   }
 
   public static function edit($id){
@@ -74,20 +80,16 @@ class KurssiController extends BaseController{
       View::make('kurssi/muokkaa.html', array('errors' => $errors, 'attributes' => $attributes));
     }else{
       // Kutsutaan alustetun olion update-metodia, joka päivittää pelin tiedot tietokannassa
-      $game->update();
+      $kurssi->update();
 
-      Redirect::to('/game/' . $game->id, array('message' => 'Peliä on muokattu onnistuneesti!'));
+      Redirect::to('/kurssiLista/' . $game->id, array('message' => 'Kurssia on muokattu onnistuneesti!'));
     }
   }
 
-  // Pelin poistaminen
   public static function destroy($id){
-    // Alustetaan Game-olio annetulla id:llä
-    $game = new Game(array('id' => $id));
-    // Kutsutaan Game-malliluokan metodia destroy, joka poistaa pelin sen id:llä
-    $game->destroy();
+    $kurssi = new Kurssi(array('id' => $id));
 
-    // Ohjataan käyttäjä pelien listaussivulle ilmoituksen kera
-    Redirect::to('/game', array('message' => 'Peli on poistettu onnistuneesti!'));
+    $kurssi->destroy();
+    Redirect::to('/kurssiLista', array('message' => 'Kurssi on poistettu onnistuneesti!'));
   }
 }

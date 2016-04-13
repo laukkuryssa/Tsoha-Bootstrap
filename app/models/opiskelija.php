@@ -49,4 +49,24 @@ class Opiskelija extends BaseModel{
 
     return null;
   }
+
+  public static function authenticate($username, $password){
+  $query = DB::connection()->prepare('SELECT * FROM Opiskelija WHERE username = :username AND password = :password LIMIT 1');
+$query->execute(array('username' => $username, 'password' => $password));
+$row = $query->fetch();
+if($row){
+  $opiskelija[] = new Opiskelija(array(
+        'id' => $row['id'],
+        'name' => $row['name'],
+        'opiskelijanumero' => $row['opiskelijanumero'],
+        'email' => $row['email'],
+        'username' => $row['username'],
+        'password' => $row['password']
+      ));
+
+      return $opiskelija;
+    }
+  return null;
+
+}
 }

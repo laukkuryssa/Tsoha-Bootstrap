@@ -33,19 +33,21 @@
   });
 
    $routes->get('/kurssiSivu/:id/edit', function($id){
-  // Pelin muokkauslomakkeen esittäminen
   KurssiController::muokkaa($id);
 });
 $routes->post('/kurssiSivu/:id/edit', function($id){
-  // Pelin muokkaaminen
   KurssiController::update($id);
 });
 
 $routes->post('/kurssiSivu/:id/destroy', function($id){
-  // Pelin poisto
   KurssiController::destroy($id);
 });
 
-   $routes->get('/login', function() {
-    HelloWorldController::login();
-  });
+   $routes->get('/login', function(){
+  // Kirjautumislomakkeen esittäminen
+  OpiskelijaController::login();
+});
+$routes->post('/login', function(){
+  // Kirjautumisen käsittely
+  OpiskelijaController::handle_login();
+});
