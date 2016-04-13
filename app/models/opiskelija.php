@@ -34,6 +34,8 @@ class Opiskelija extends BaseModel{
     $query->execute(array('id' => $id));
     $row = $query->fetch();
 
+    $opiskelija = array();
+
     if($row){
       $opiskelija[] = new Opiskelija(array(
         'id' => $row['id'],
@@ -55,7 +57,7 @@ class Opiskelija extends BaseModel{
 $query->execute(array('username' => $username, 'password' => $password));
 $row = $query->fetch();
 
-
+$opiskelijat = array();
 
 if($row){
   $opiskelija[] = new Opiskelija(array(
