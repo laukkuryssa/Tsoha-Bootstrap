@@ -18,7 +18,13 @@
         <th>Luennoitsija</th>
         <th>Kurssi alkaa</th>
         <th>Laajuus</th>
+        if ({{user_logged_in}} != null) {
         <th>Ilmoittaudu</th>
+        if ({{user_logged_in.username}}.equals("admin")) {
+        <th>Muokkaa</th>
+        <th>Poista</th>
+        }
+        }
       </tr>
     </thead>
     <tbody>
@@ -28,10 +34,20 @@
         <td>{{kurssi.luennoitsija}}</td>
         <td>{{kurssi.alkamisajankohta}}</td>
         <td>{{kurssi.opintopisteet}} op</td>
+        if ({{user_logged_in}} != null) {
+        <td><button class="btn btn-primary">Ilmoittaudu</button></td>
+        if ({{user_logged_in.username}}.equals("admin")) {
+        <th><button class="btn btn-default">Muokkaa</button></th>
+        <th><button class="btn btn-danger">Poista</button></th>
+        }
+        }
       </tr>
       {% endfor %}
     </tbody>
   </table>
+
+
+  <p>{{user_logged_in.name}}</p>
 
   
 
