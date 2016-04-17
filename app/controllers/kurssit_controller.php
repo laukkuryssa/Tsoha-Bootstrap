@@ -51,7 +51,7 @@ class KurssiController extends BaseController{
 
   public static function edit($id){
     $kurssi = Kurssi::find($id);
-    View::make('kurssi/muokkaa.html', array('attributes' => $kurssi));
+    View::make('kurssi/kurssinMuokkaus.html', array('attributes' => $kurssi));
   }
 
   // Pelin muokkaaminen (lomakkeen käsittely)
@@ -77,7 +77,7 @@ class KurssiController extends BaseController{
     $errors = $kurssi->errors();
 
     if(count($errors) > 0){
-      View::make('kurssi/muokkaa.html', array('errors' => $errors, 'attributes' => $attributes));
+      View::make('kurssi/kurssinMuokkaus.html', array('errors' => $errors, 'attributes' => $attributes));
     }else{
       // Kutsutaan alustetun olion update-metodia, joka päivittää pelin tiedot tietokannassa
       $kurssi->update();
@@ -89,7 +89,7 @@ class KurssiController extends BaseController{
   public static function destroy($id){
     $kurssi = new Kurssi(array('id' => $id));
 
-    $kurssi->destroy();
+    $kurssi->destroy($id);
     Redirect::to('/kurssiLista', array('message' => 'Kurssi on poistettu onnistuneesti!'));
   }
 }

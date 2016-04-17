@@ -37,8 +37,12 @@
         if ({{user_logged_in}} != null) {
         <td><button class="btn btn-primary">Ilmoittaudu</button></td>
         if ({{user_logged_in.username}}.equals("admin")) {
-        <th><button class="btn btn-default">Muokkaa</button></th>
-        <th><button class="btn btn-danger">Poista</button></th>
+        <th><form method="post" action="{{base_path}}/kurssiSivu/{{kurssi.id}}/edit" style="display: inline-block;">
+  <button type="submit" class="btn btn-default">Muokkaa</button>
+</form></th>
+        <th><form method="post" action="{{base_path}}/kurssiSivu/{{kurssi.id}}/destroy" style="display: inline-block;">
+  <button type="submit" class="btn btn-danger">Poista</button>
+</form></th>
         }
         }
       </tr>
