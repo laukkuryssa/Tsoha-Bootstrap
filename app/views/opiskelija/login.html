@@ -2,6 +2,10 @@
 {% block content %}
   <h1>Kirjaudu sisään</h1>
 
+  <br>
+  <p><font color="red">{{error}} </font></p>
+  <br>
+
   <form method="post" action="{{base_path}}/login">
     <div class="form-group">
       <label>Käyttäjätunnus</label>

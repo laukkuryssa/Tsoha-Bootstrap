@@ -1,6 +1,6 @@
 <?php
 
-require 'app/models/opiskelija.php';
+require_once 'app/models/opiskelija.php';
 
 class OpiskelijaController extends BaseController{
 
@@ -27,7 +27,7 @@ public static function opiskelijaSivu($id){
     }else{
       $_SESSION['opiskelija'] = $opiskelija->id;
 
-      Redirect::to('/kurssiLista/', array('message' => 'Tervetuloa takaisin ' . $opiskelija->name . '!'));
+      Redirect::to('/kurssiLista', array('message' => 'Tervetuloa takaisin ' . $opiskelija->name . '!'));
     }
   }
 

@@ -129,43 +129,77 @@ class Kurssi extends BaseModel{
   return $errors;
 }
 
-  public function validate_alkamisajankohta(){
-  $errors = array();
-  
-
-  return $errors;
+  public function validate_alkamisajankohta() {
+    $errors = array();
+  $test_date = $this->alkamisajankohta;
+$test_arr  = explode('/', $test_date);
+if (count($test_arr) == 3) {
+    if (checkdate($test_arr[1], $test_arr[0], $test_arr[2])) {
+        return $errors;
+    } else {
+        $errors[] = 'Kurssin alkamispäivämäärä on oikeassa muodossa, mutta tarkista, että päivämäärä on mahdollinen.';
+        return $errors;
+    }
+} else {
+    // problem with input ...
+    $errors[] = 'Kurssin alkamispäivämäärä ei ole oikeassa muodossa. Oikea muoto on pv/kk/vvvv.';
+    return $errors;
+}
 }
 
-  public function validate_loppumisajankohta(){
-  $errors = array();
-  
-
-  return $errors;
+  public function validate_loppumisajankohta() {
+    $errors = array();
+  $test_date = $this->loppumisajankohta;
+$test_arr  = explode('/', $test_date);
+if (count($test_arr) == 3) {
+    if (checkdate($test_arr[1], $test_arr[0], $test_arr[2])) {
+        return $errors;
+    } else {
+        $errors[] = 'Kurssin loppumispäivämäärä on oikeassa muodossa, mutta tarkista, että päivämäärä on mahdollinen.';
+        return $errors;
+    }
+} else {
+    // problem with input ...
+    $errors[] = 'Kurssin loppumispäivämäärä ei ole oikeassa muodossa. Oikea muoto on pv/kk/vvvv.';
+    return $errors;
+}
 }
 
-  public function validate_ilmoalkaa(){
-  $errors = array();
-  
-
-  return $errors;
+  public function validate_ilmoalkaa() {
+    $errors = array();
+  $test_date = $this->ilmoalkaa;
+$test_arr  = explode('/', $test_date);
+if (count($test_arr) == 3) {
+    if (checkdate($test_arr[1], $test_arr[0], $test_arr[2])) {
+        return $errors;
+    } else {
+        $errors[] = 'Ilmoittautumisen alkamispäivämäärä on oikeassa muodossa, mutta tarkista, että päivämäärä on mahdollinen.';
+        return $errors;
+    }
+} else {
+    // problem with input ...
+    $errors[] = 'Ilmoittautumisen alkamispäivämäärä ei ole oikeassa muodossa. Oikea muoto on pv/kk/vvvv.';
+    return $errors;
+}
 }
 
-  public function validate_ilmoloppuu(){
-  $errors = array();
-  
 
-  return $errors;
+  public function validate_ilmoloppuu() {
+    $errors = array();
+  $test_date = $this->ilmoloppuu;
+$test_arr  = explode('/', $test_date);
+if (count($test_arr) == 3) {
+    if (checkdate($test_arr[1], $test_arr[0], $test_arr[2])) {
+        return $errors;
+    } else {
+        $errors[] = 'Ilmoittautumisen loppumispäivämäärä on oikeassa muodossa, mutta tarkista, että päivämäärä on mahdollinen.';
+        return $errors;
+    }
+} else {
+    // problem with input ...
+    $errors[] = 'Ilmoittautumisen loppumispäivämäärä ei ole oikeassa muodossa. Oikea muoto on pv/kk/vvvv.';
+    return $errors;
 }
-
-  public function paivayksen_oikeellisuus() {
-  if(preg_match("/^(\d{2})\/(\d{2})\/(\d{4})$/", $matches))
-   {
-    if(checkdate($matches[2], $matches[1], $matches[3]))
-      {
-       return true; 
-      }
-   }
-   return false;
- }
+}
 
 }
