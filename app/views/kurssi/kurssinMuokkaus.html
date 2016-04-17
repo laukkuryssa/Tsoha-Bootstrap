@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Kurssin lisäys/muokkaus</h1>
+  <h1>Kurssin muokkaus</h1>
 
   {% if errors %}
     <div class="alert alert-danger">
@@ -25,7 +25,7 @@
     </div>
     <div class="form-group">
       <label>Opintopisteet</label>
-      <input name="opintopisteet" class="form-control" placeholder={{k.name}} type="INTEGER">
+      <input name="opintopisteet" class="form-control" placeholder={{k.opintopisteet}} type="INTEGER">
     </div>
     <div class="form-group">
       <label>Luentoajat:</label>
