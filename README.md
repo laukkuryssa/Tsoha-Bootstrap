@@ -31,4 +31,4 @@ salasana: secret123
 
 user_logged_in -muuttuja ei toimi, vaikka se on toteutettu. Marko ei osannut sanoa, missä on vika ja laitoin tänään Artolle sähköpostia asiasta. Asia oletettavasti korjaantuu lähipäivinä. Kirjautuminen kuitenkin toimii.
 
-Mitään varsinaisia käyttöohjeita ei ole. Etusivulta pääsee muille sivuille navigointipalkin avulla. Tässä vaiheessa kurssin luonti, muokkaus ja poisto onnistuu keneltä tahansa [täältä](http://timohaut.users.cs.helsinki.fi/kurssihallinta/kurssiLista), mutta kun saan toimimaan muuttujan user_logged_in, vaaditan tämän userin käyttäjätunnukseksi "admin". Deadlinessa vaadittu toiminnallisuus siis pelaa, mutta oikeudet kaikilla.
+Mitään varsinaisia käyttöohjeita ei ole. Etusivulta pääsee muille sivuille navigointipalkin avulla. Tässä vaiheessa [kurssin luonti](http://timohaut.users.cs.helsinki.fi/kurssihallinta/uusiKurssi), [muokkaus ja poisto](http://timohaut.users.cs.helsinki.fi/kurssihallinta/kurssiLista) onnistuu keneltä tahansa, mutta kun saan toimimaan muuttujan user_logged_in, vaaditan tämän userin käyttäjätunnukseksi "admin". Deadlinessa vaadittu toiminnallisuus siis pelaa, mutta oikeudet kaikilla.
