@@ -76,7 +76,7 @@ class Kurssi extends BaseModel{
 
   public function update(){
     // Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
-    $query = DB::connection()->prepare('UPDATE INTO Kurssi (name, luennoitsija, opintopisteet, luentoajat, esitiedot, kuvaus, harjoitusryhmat, alkamisajankohta, loppumisajankohta, ilmoalkaa, ilmoloppuu) VALUES (:name, :luennoitsija, :opintopisteet, :luentoajat, :esitiedot, :kuvaus, :harjoitusryhmat, :alkamisajankohta, :loppumisajankohta, :ilmoalkaa, :ilmoloppuu) WHERE id = :id RETURNING id');
+    $query = DB::connection()->prepare('UPDATE Kurssi SET name = :name, luennoitsija = :luennoitsija, opintopisteet = :opintopisteet, luentoajat = :luentoajat, esitiedot = :esitiedot, kuvaus = :kuvaus, harjoitusryhmat = :harjoitusryhmat, alkamisajankohta = :alkamisajankohta, loppumisajankohta = :loppumisajankohta, ilmoalkaa = :ilmoalkaa, ilmoloppuu = :ilmoloppuu WHERE id = :id RETURNING id');
     // Muistathan, että olion attribuuttiin pääse syntaksilla $this->attribuutin_nimi
     $query->execute(array('name' => $this->name, 'luennoitsija' => $this->luennoitsija, 'opintopisteet' => $this->opintopisteet, 'luentoajat' => $this->luentoajat, 'esitiedot' => $this->esitiedot, 'kuvaus' => $this->kuvaus, 'harjoitusryhmat' => $this->harjoitusryhmat, 'alkamisajankohta' => $this->alkamisajankohta, 'loppumisajankohta' => $this->loppumisajankohta, 'ilmoalkaa' => $this->ilmoalkaa, 'ilmoloppuu' => $this->ilmoloppuu));
     // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
@@ -196,5 +196,10 @@ if (count($test_arr) == 3) {
     return $errors;
 }
 }
+
+  public function change_datestyle($pvm) {
+      $test_arr  = explode('-', $pvm);
+      return $test_arr[2] . '/' . $test_arr[1] . '/' . $test_arr[0];
+  }
 
 }

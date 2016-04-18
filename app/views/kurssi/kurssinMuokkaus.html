@@ -17,47 +17,47 @@
   <form method="post" action="{{base_path}}/kurssiSivu/{{k.id}}/update">
     <div class="form-group">
       <label>Kurssin nimi</label>
-      <input name="name" class="form-control" placeholder={{k.name}} type="text">
+      <input name="name" class="form-control" value={{k.name}} type="text">
     </div>
     <div class="form-group">
       <label>Luennoitsija</label>
-      <input name="luennoitsija" class="form-control" placeholder={{k.luennoitsija}} type="text">
+      <input name="luennoitsija" class="form-control" value={{k.luennoitsija}} type="text">
     </div>
     <div class="form-group">
       <label>Opintopisteet</label>
-      <input name="opintopisteet" class="form-control" placeholder={{k.opintopisteet}} type="INTEGER">
+      <input name="opintopisteet" class="form-control" value={{k.opintopisteet}} type="INTEGER">
     </div>
     <div class="form-group">
       <label>Luentoajat:</label>
-      <input name="luentoajat" class="form-control" placeholder={{k.luentoajat}} type="text">
+      <input name="luentoajat" class="form-control" value={{k.luentoajat}} type="text">
     </div>
     <div class="form-group">
       <label>Esitietovaatimukset:</label>
-      <input name="esitiedot" class="form-control" placeholder={{k.esitiedot}} type="text">
+      <input name="esitiedot" class="form-control" value={{k.esitiedot}} type="text">
     </div>
     <div class="form-group">
       <label>Kuvaus:</label>
-      <input name="kuvaus" class="form-control" placeholder={{k.kuvaus}} type="text">
+      <input name="kuvaus" class="form-control" value={{k.kuvaus}} type="text">
     </div>
     <div class="form-group">
       <label>Harjoitustyhmät:</label>
-      <input name="harjoitusryhmat" class="form-control" placeholder={{k.harjoitusryhmat}} type="text">
+      <input name="harjoitusryhmat" class="form-control" value={{k.harjoitusryhmat}} type="text">
     </div>
     <div class="form-group">
       <label>Kurssi alkaa: (pv/kk/vvvv)</label>
-      <input name="alkamisajankohta" class="form-control" placeholder={{k.alkamisajankohta}} type="date">
+      <input name="alkamisajankohta" class="form-control" value={{k.change_datestyle(k.alkamisajankohta)}} type="date">
     </div>
     <div class="form-group">
       <label>Kurssi loppuu: (pv/kk/vvvv)</label>
-      <input name="loppumisajankohta" class="form-control" placeholder={{k.loppumisajankohta}} type="date">
+      <input name="loppumisajankohta" class="form-control" value={{k.change_datestyle(k.loppumisajankohta)}} type="date">
     </div>
     <div class="form-group">
       <label>Ilmo alkaa: (pv/kk/vvvv)</label>
-      <input name="ilmoalkaa" class="form-control" placeholder={{k.ilmoalkaa}} type="date">
+      <input name="ilmoalkaa" class="form-control" value={{k.change_datestyle(k.ilmoalkaa)}} type="date">
     </div>
     <div class="form-group">
       <label>Ilmo loppuu: (pv/kk/vvvv)</label>
-      <input name="ilmoloppuu" class="form-control" placeholder={{k.ilmoloppuu}} type="date">
+      <input name="ilmoloppuu" class="form-control" value={{k.change_datestyle(k.ilmoloppuu)}} type="date">
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Päivitä</button>
