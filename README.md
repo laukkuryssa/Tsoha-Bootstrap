@@ -17,7 +17,6 @@ Kurssihallinta-sovelluksessa on samat ominaisuudet kuin aiheessa Kurssitarjonta 
 * [Linkki kurssien listaussivulle](http://timohaut.users.cs.helsinki.fi/kurssihallinta/kurssiLista)
 * [Linkki kirjautumiseen](http://timohaut.users.cs.helsinki.fi/kurssihallinta/login)
 * [Linkki opiskelijoiden listaussivulle](http://timohaut.users.cs.helsinki.fi/kurssihallinta/opiskelijaLista)
-* [Linkki yksittäisen opiskelijan sivulle](http://timohaut.users.cs.helsinki.fi/kurssihallinta/opiskelijaSivu)
 * [Linkki uuden kurssin luontiin sekä jo luotujen kurssien muokkaukseen (näkyy vain ylläpidolle)](http://timohaut.users.cs.helsinki.fi/kurssihallinta/uusiKurssi)
 
 
