@@ -15,7 +15,6 @@ Kurssihallinta-sovelluksessa on samat ominaisuudet kuin aiheessa Kurssitarjonta 
 
 * [Linkki etusivulle](http://timohaut.users.cs.helsinki.fi/kurssihallinta/)
 * [Linkki kurssien listaussivulle](http://timohaut.users.cs.helsinki.fi/kurssihallinta/kurssiLista)
-* [Linkki tietyn kurssin sivulle](http://timohaut.users.cs.helsinki.fi/kurssihallinta/kurssiSivu)
 * [Linkki kirjautumiseen](http://timohaut.users.cs.helsinki.fi/kurssihallinta/login)
 * [Linkki opiskelijoiden listaussivulle](http://timohaut.users.cs.helsinki.fi/kurssihallinta/opiskelijaLista)
 * [Linkki yksittäisen opiskelijan sivulle](http://timohaut.users.cs.helsinki.fi/kurssihallinta/opiskelijaSivu)
@@ -33,4 +32,4 @@ salasana: secret123
 
 user_logged_in -muuttuja ei toimi, vaikka se on toteutettu. Marko ei osannut sanoa, missä on vika ja laitoin tänään Artolle sähköpostia asiasta. Asia oletettavasti korjaantuu lähipäivinä. Kirjautuminen kuitenkin toimii.
 
-Mitään varsinaisia käyttöohjeita ei ole. Etusivulta pääsee muille sivuille navigointipalkin avulla. Tässä vaiheessa kurssin luonti, muokkaus ja poisto onnistuu keneltä tahansa, mutta kun saan toimimaan muuttujan user_logged_in, vaaditan tämän userin käyttäjätunnukseksi "admin". Deadlinessa vaadittu toiminnallisuus siis pelaa, mutta oikeudet kaikilla.
+Mitään varsinaisia käyttöohjeita ei ole. Etusivulta pääsee muille sivuille navigointipalkin avulla. Tässä vaiheessa kurssin luonti, muokkaus ja poisto onnistuu keneltä tahansa [täältä](http://timohaut.users.cs.helsinki.fi/kurssihallinta/kurssiLista), mutta kun saan toimimaan muuttujan user_logged_in, vaaditan tämän userin käyttäjätunnukseksi "admin". Deadlinessa vaadittu toiminnallisuus siis pelaa, mutta oikeudet kaikilla.
