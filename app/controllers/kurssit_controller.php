@@ -14,8 +14,7 @@ class KurssiController extends BaseController{
     View::make('kurssi/kurssiSivu.html', array('kurssi' => $kurssi));
   }
 
-  public static function create(
-  	){
+  public static function create(){
     View::make('kurssi/uusiKurssi.html');
   }
 
@@ -51,16 +50,15 @@ class KurssiController extends BaseController{
 
   public static function edit($id){
     $kurssi = Kurssi::find($id);
-    View::make('kurssi/kurssinMuokkaus.html', array('attributes' => $kurssi));
+    View::make('kurssi/kurssinMuokkaus.html', array('kurssi' => $kurssi));
   }
 
-  // Pelin muokkaaminen (lomakkeen käsittely)
   public static function update($id){
     $params = $_POST;
 
     $attributes = array(
-    	'id' => $id,
-    	'name' => $params['name'],
+    	  'id' => $id,
+    	  'name' => $params['name'],
         'luennoitsija' => $params['luennoitsija'],
         'opintopisteet' => $params['opintopisteet'],
         'luentoajat' => $params['luentoajat'],
