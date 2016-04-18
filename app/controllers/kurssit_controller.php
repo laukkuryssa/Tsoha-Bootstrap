@@ -75,12 +75,13 @@ class KurssiController extends BaseController{
     $errors = $kurssi->errors();
 
     if(count($errors) > 0){
-      View::make('kurssi/kurssinMuokkaus.html', array('errors' => $errors, 'attributes' => $attributes));
+      $vanha = Kurssi::find($id);
+      View::make('kurssi/kurssinMuokkaus.html', array('errors' => $errors, 'attributes' => $attributes, 'kurssi' => $vanha));
     }else{
       // Kutsutaan alustetun olion update-metodia, joka päivittää pelin tiedot tietokannassa
       $kurssi->update();
 
-      Redirect::to('/kurssiLista/' . $kurssi->id, array('message' => 'Kurssia on muokattu onnistuneesti!'));
+      Redirect::to('/kurssiLista', array('message' => 'Kurssia on muokattu onnistuneesti!'));
     }
   }
 
