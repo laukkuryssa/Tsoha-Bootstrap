@@ -36,7 +36,7 @@
   KurssiController::edit($id);
   });
 
-  $routes->post('/kurssiLista', function($id){
+  $routes->post('/kurssiSivu/:id/update', function($id){
   KurssiController::update($id);
   });
 
