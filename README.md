@@ -20,3 +20,17 @@ Kurssihallinta-sovelluksessa on samat ominaisuudet kuin aiheessa Kurssitarjonta 
 * [Linkki opiskelijoiden listaussivulle](http://timohaut.users.cs.helsinki.fi/kurssihallinta/opiskelijaLista)
 * [Linkki yksittäisen opiskelijan sivulle](http://timohaut.users.cs.helsinki.fi/kurssihallinta/opiskelijaSivu)
 * [Linkki uuden kurssin luontiin sekä jo luotujen kurssien muokkaukseen (näkyy vain ylläpidolle)](http://timohaut.users.cs.helsinki.fi/kurssihallinta/uusiKurssi)
+
+
+### Käyttöohje
+
+Sovellukseni URL-osoite: http://timohaut.users.cs.helsinki.fi/kurssihallinta/
+
+Kirjautuminen onnistuu seuraavilla tunnuksilla:
+
+käyttäjätunnus: timohau
+salasana: secret123
+
+user_logged_in -muuttuja ei toimi, vaikka se on toteutettu. Marko ei osannut sanoa, missä on vika ja laitoin tänään Artolle sähköpostia asiasta. Asia oletettavasti korjaantuu lähipäivinä. Kirjautuminen kuitenkin toimii.
+
+Mitään varsinaisia käyttöohjeita ei ole. Etusivulta pääsee muille sivuille navigointipalkin avulla. Tässä vaiheessa kurssin luonti, muokkaus ja poisto onnistuu keneltä tahansa, mutta kun saan toimimaan muuttujan user_logged_in, vaaditan tämän userin käyttäjätunnukseksi "admin". Deadlinessa vaadittu toiminnallisuus siis pelaa, mutta oikeudet kaikilla.
