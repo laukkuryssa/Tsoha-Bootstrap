@@ -80,7 +80,7 @@ class KurssiController extends BaseController{
       // Kutsutaan alustetun olion update-metodia, joka päivittää pelin tiedot tietokannassa
       $kurssi->update();
 
-      Redirect::to('/kurssiLista/' . $game->id, array('message' => 'Kurssia on muokattu onnistuneesti!'));
+      Redirect::to('/kurssiLista/' . $kurssi->id, array('message' => 'Kurssia on muokattu onnistuneesti!'));
     }
   }
 
