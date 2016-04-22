@@ -11,6 +11,12 @@
 
 <p>Tältä sivulta löydät kaikki kurssit, joille voi tai ainakin on voinut tai tulee voimaan ilmoittautua.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+
  <table class="table table-striped">
     <thead>
       <tr>
@@ -18,13 +24,10 @@
         <th>Luennoitsija</th>
         <th>Kurssi alkaa</th>
         <th>Laajuus</th>
-        if ({{user_logged_in}} != null) {
-        <th>Ilmoittaudu</th>
-        if ({{user_logged_in.username}}.equals("admin")) {
+        {% if user_logged_in %}     
         <th>Muokkaa</th>
-        <th>Poista</th>
-        }
-        }
+        <th>Poista</th> 
+        {% endif %}
       </tr>
     </thead>
     <tbody>
@@ -34,23 +37,15 @@
         <td>{{kurssi.luennoitsija}}</td>
         <td>{{kurssi.alkamisajankohta}}</td>
         <td>{{kurssi.opintopisteet}} op</td>
-        if ({{user_logged_in}} != null) {
-        <td><button class="btn btn-primary">Ilmoittaudu</button></td>
-        if ({{user_logged_in.username}}.equals("admin")) {
+        {% if user_logged_in %} 
         <th><a href="{{base_path}}/kurssiSivu/{{kurssi.id}}/edit">Muokkaa</th>
         <th><form method="post" action="{{base_path}}/kurssiSivu/{{kurssi.id}}/destroy" style="display: inline-block;">
   <button type="submit" class="btn btn-danger">Poista</button>
 </form></th>
-        }
-        }
+      {% endif %}
       </tr>
       {% endfor %}
     </tbody>
   </table>
-
-
-  <p>{{user_logged_in.name}}</p>
-
-  
 
 {% endblock %}

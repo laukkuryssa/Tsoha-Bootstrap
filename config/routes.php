@@ -53,3 +53,7 @@ $routes->post('/login', function(){
   // Kirjautumisen käsittely
   OpiskelijaController::handle_login();
 });
+
+$routes->post('/logout', function(){
+  OpiskelijaController::logout();
+});

@@ -19,11 +19,10 @@
   }
 
     public static function check_logged_in(){
-      if (this::get_user_logged_in() == null) {
-        Redirect::to('/login', array('message' => 'Kirjautuminen epäonnistui!'));
-      }
-      // Jos käyttäjä ei ole kirjautunut sisään, ohjaa hänet toiselle sivulle (esim. kirjautumissivulle).
+    if(!isset($_SESSION['user'])){
+      Redirect::to('/login', array('message' => 'Kirjaudu ensin sisään!'));
     }
+  }
 
 
 

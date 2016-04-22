@@ -31,4 +31,9 @@ public static function opiskelijaSivu($id){
     }
   }
 
+  public static function logout(){
+    $_SESSION['opiskelija'] = null;
+    Redirect::to('/login', array('message' => 'Olet kirjautunut ulos!'));
+  }
+
 }
